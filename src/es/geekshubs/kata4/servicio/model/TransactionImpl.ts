@@ -1,3 +1,5 @@
+import { Clock } from "../Utils/Clock/Clock";
+
 export class TransactionImpl {
-    constructor(public amount:number){ }
+    constructor(public dateNow:String, public amount:number){ }
 }

@@ -5,9 +5,9 @@ export class ClockImpl implements Clock {
     constructor() {
 
     }
-    
+
     getDateNow(): string {
-        return new Date().toLocaleString()
+        return new Date().toLocaleString().split(' ')[0]
     }
     
 }
