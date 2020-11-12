@@ -1,4 +1,6 @@
+import { _ConsoleImpl } from "../../../../src/es/geekshubs/kata4/servicio/console/_ConsoleImpl";
 import { TransactionImpl } from "../../../../src/es/geekshubs/kata4/servicio/model/TransactionImpl";
+import { TransactionServiceImpl } from "../../../../src/es/geekshubs/kata4/servicio/TransactionServiceImpl";
 import { ClockImpl } from "../../../../src/es/geekshubs/kata4/servicio/Utils/Clock/ClockImpl";
 
 describe('Testing Model TransactionImpl', function () {
@@ -55,12 +57,17 @@ describe('Testing Clock', function () {
 
 describe('Testing Trasaction Service', function () {
     //Patrón triple AAA
-    test('Add Transaction', function(){
+    test('Add Transaction OK', function(){
         //Arrange
-        var exp = "2020-11-12"
+        //TRUE
         //Act
+        var amount = 10
         var clock = new ClockImpl();
+        var console = new _ConsoleImpl();
+        var ts = new TransactionServiceImpl(console);
+        var transaction = new TransactionImpl(clock.getDateNow(),amount)
         //Assert
-        expect(clock.getDateNow()).toBe(exp)
+        expect(ts.add(transaction)).toBeTruthy()
     })
+
 })

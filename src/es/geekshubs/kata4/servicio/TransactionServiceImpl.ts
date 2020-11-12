@@ -11,13 +11,14 @@ export class TransactionServiceImpl implements TransactionService{
 
     constructor(public console:_Console) { }
 
-
     add(t: TransactionImpl): boolean {
         return this.list.add(t)
     }
 
     print(): void {
-        throw new Error("Method not implemented.");
+        this.list.forEach(it => {
+            this.console.log(it.toString())
+        });
     }
 
 
