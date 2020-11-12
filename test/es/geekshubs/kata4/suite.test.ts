@@ -39,6 +39,18 @@ describe('Testing Model TransactionImpl', function () {
         expect(model.amount).toBe(exp)
     })
 
+     //Patrón triple AAA
+     test('ToString -> modelo', function(){
+        //Arrange
+        var date = "2020-11-12"
+        var amount = 10
+        var exp = `TransactionImpl (dateNow: ${date}, amount: ${amount} )`
+        //Act
+        var model = new TransactionImpl(date,amount);
+        //Assert
+        expect(model.toString()).toBe(exp)
+    })
+
 })
 
 
@@ -68,6 +80,23 @@ describe('Testing Trasaction Service', function () {
         var transaction = new TransactionImpl(clock.getDateNow(),amount)
         //Assert
         expect(ts.add(transaction)).toBeTruthy()
+    })
+
+    
+    test('ToString', function(){
+        var amount = 10
+        var clock = new ClockImpl();
+        var console = new _ConsoleImpl();
+        var ts = new TransactionServiceImpl(console);
+        var transaction = new TransactionImpl(clock.getDateNow(),amount)
+        ts.add(new TransactionImpl(clock.getDateNow(),amount))
+        ts.add(new TransactionImpl(clock.getDateNow(),amount*2))
+        ts.add(new TransactionImpl(clock.getDateNow(),amount*3))
+        ts.add(new TransactionImpl(clock.getDateNow(),amount*4))
+        ts.add(new TransactionImpl(clock.getDateNow(),amount*5))
+
+        ts.print()
+
     })
 
 })
