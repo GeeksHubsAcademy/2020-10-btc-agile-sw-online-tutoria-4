@@ -1,27 +1,36 @@
-const { getHello } = require("../../../../src/es/geekshubs/kata1/hello")
+import { TransactionImpl } from "../../../../src/es/geekshubs/kata4/servicio/model/TransactionImpl";
 
-describe('Testing', function () {
-
-    const HELLO = 'Hello '
+describe('Testing Model TransactionImpl', function () {
 
     //Patrón triple AAA
-    test('Caso base -> Hello ', function(){
+    test('Caso base -> amount 0 ', function(){
         //Arrange
-        var exp = HELLO
+        var exp = 0
         //Act
-        var res = getHello('')
+        var model = new TransactionImpl(0);
         //Assert
-        expect(res).toBe(exp)
+        expect(model.amount).toBe(exp)
     })
 
-      //Patrón triple AAA
-      test('Caso 1 -> Hello vicboma1', function(){
-        var name = 'vicboma1'
+    //Patrón triple AAA
+    test('Caso -> amount 10 ', function(){
         //Arrange
-        var exp = HELLO+name
+        var exp = 10
         //Act
-        var res = getHello(name)
+        var model = new TransactionImpl(10);
         //Assert
-        expect(res).toBe(exp)
+        expect(model.amount).toBe(exp)
     })
+
+
+    //Patrón triple AAA
+    test('Corner case -> modelo -1', function(){
+        //Arrange
+        var exp = -1
+        //Act
+        var model = new TransactionImpl(-1);
+        //Assert
+        expect(model.amount).toBe(exp)
+    })
+
 })
