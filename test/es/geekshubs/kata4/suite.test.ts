@@ -1,4 +1,5 @@
 import { TransactionImpl } from "../../../../src/es/geekshubs/kata4/servicio/model/TransactionImpl";
+import { ClockImpl } from "../../../../src/es/geekshubs/kata4/servicio/Utils/Clock/ClockImpl";
 
 describe('Testing Model TransactionImpl', function () {
 
@@ -33,4 +34,18 @@ describe('Testing Model TransactionImpl', function () {
         expect(model.amount).toBe(exp)
     })
 
+})
+
+
+describe('Testing Clock', function () {
+
+    //Patrón triple AAA
+    test('getDateNow', function(){
+        //Arrange
+        var exp = "2020-11-12"
+        //Act
+        var clock = new ClockImpl();
+        //Assert
+        expect(clock.getDateNow().split(' ')[0]).toBe(exp)
+    })
 })
