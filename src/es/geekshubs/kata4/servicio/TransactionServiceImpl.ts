@@ -17,7 +17,8 @@ export class TransactionServiceImpl implements TransactionService{
 
     print(): void {
         this.list.forEach(it => {
-            this.console.log(it.toString())
+            let msg = it.toString();
+            this.console.log(msg)
         });
     }
 
